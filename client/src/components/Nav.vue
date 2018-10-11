@@ -1,8 +1,5 @@
 <template>
-  <div>
-    <h2>Nav Bar</h2>
-    <nav>
-      <router-link to="/">Home</router-link>
-    </nav>
-  </div>
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+  </nav>
 </template>
