@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-    <Nav></Nav>
-  <!--  <img src="./assets/logo.png">-->
+    <Nav/>
     <router-view/>
   </div>
 </template>

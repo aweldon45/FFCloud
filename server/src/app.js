@@ -10,11 +10,6 @@ app.use(morgan('combined'))
 app.use(bodyParser.json())
 app.use(cors())
 
-//routes
-app.post('/register', (req, res) => {
-  res.send({
-    message:`Hello ${req.body.email}! this is a test`
-  })
-})
+require('./routes')(app)
 
 app.listen(process.env.PORT || 8081)
