@@ -15,4 +15,8 @@
 <!-- styling for Navbar -->
 
 <style scoped>
+.navbar, .navbar-brand {
+  font-size: 20px;
+  font-weight: bold;
+}
 </style>
