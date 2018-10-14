@@ -18,7 +18,7 @@
            <h1 style="height: 600px" class="display-4">Experience your favorite festivals from anywhere!
              <br>
              <h3>Simultaneous broadcast with live screenings</h3>
-             <button type="button" class="btn btn-primary btn-lg">See what's playing!
+             <button type="button" class="btn btn-primary btn-lg" onclick="/ticketbooth">See what's playing!
              </button>
            </h1>
          </b-col>
@@ -30,7 +30,7 @@
            <h1 style="height: 600px" class="display-4">Discover new up and coming filmmakers!
              <br>
              <h3>Connect with filmmakers whose films you love</h3>
-             <button type="button" class="btn btn-primary btn-lg">See what's playing!
+             <button type="button" class="btn btn-primary btn-lg" href="/ticketbooth">See what's playing!
              </button>
            </h1>
          </b-col>
@@ -42,7 +42,7 @@
            <h1 style="height: 600px" class="display-4">Engage with other audience members real-time!
              <br>
              <h3>Use chat functionality to provide feedback about the screening</h3>
-             <button type="button" class="btn btn-primary btn-lg">See what's playing!
+             <button type="button" class="btn btn-primary btn-lg" href="/ticketbooth">See what's playing!
              </button>
            </h1>
          </b-col>

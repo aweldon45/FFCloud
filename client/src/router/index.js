@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from '@/components/Home'
 import Register from '@/components/Register'
 import About from '@/components/About'
+import TicketBooth from '@/components/TicketBooth'
 
 Vue.use(Router)
 
@@ -23,6 +24,11 @@ export default new Router({
       path: '/about',
       name: 'about',
       component: About
+    },
+    {
+      path: '/ticketbooth',
+      name: 'ticketbooth',
+      component: TicketBooth
     }
   ]
 })
