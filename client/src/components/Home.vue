@@ -3,7 +3,7 @@
     <div>
        <h2 class="logline">{{message}}</h2>
        <p class="logline">{{message2}}</p>
-       <button class="button">See What's Playing!</button>
+       <button href="#" :style="btnstyling">See What's Playing!</button>
     </div>
   </div>
 </template>
@@ -13,7 +13,29 @@ export default {
   data () {
     return {
       message: 'Experience your favorite festivals from anywhere!',
-      message2: 'Simultaneous broadcast with live screenings'
+      message2: 'Simultaneous broadcast with live screenings',
+      backgroundColor: '#008CBA',
+      color: 'white',
+      padding: '15px 20px',
+      textDecoration: 'none',
+      fontSize: '16px',
+      border: '2px solid #008CBA',
+      borderRadius: '12px',
+      fontWeight: 'bold'
+    }
+  },
+  computed: {
+    btnstyling: function () {
+      return {
+        backgroundColor: this.backgroundColor,
+        color: this.color,
+        padding: this.padding,
+        fontSize: this.fontSize,
+        border: this.border,
+        transitionDuration: this.transitionDuration,
+        borderRadius: this.borderRadius,
+        fontWeight: this.fontWeight
+      }
     }
   }
 }
@@ -33,8 +55,5 @@ color: white;
 text-align: center;
 position: relative;
 top: 45%;
-},
-.button {
-  color: black;
 }
 </style>

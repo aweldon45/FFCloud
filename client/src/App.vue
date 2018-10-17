@@ -1,15 +1,16 @@
 <template>
   <div id="app">
+    <Navigation/>
     <router-view/>
   </div>
 </template>
 
 <script>
-import Nav from './components/Nav'
+import Navigation from './components/Navigation'
 export default {
   name: 'App',
   components: {
-    'Nav': Nav
+    'Navigation': Navigation
   }
 }
 </script>
