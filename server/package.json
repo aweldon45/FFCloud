@@ -11,6 +11,7 @@
   "author": "Anthony Weldon",
   "license": "ISC",
   "dependencies": {
+    "aws-sdk": "^2.338.0",
     "body-parser": "^1.18.3",
     "cors": "^2.8.4",
     "express": "^4.16.3",
