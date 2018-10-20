@@ -9,8 +9,8 @@ var docClient = new AWS.DynamoDB.DocumentClient();
 
 var table = "SampleMovies";
 
-var year = 2014;
-var title = "Divergent";
+var year = 2013;
+var title = "Gravity";
 
 var params = {
     TableName: table,
