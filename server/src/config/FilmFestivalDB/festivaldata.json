@@ -1,0 +1,58 @@
+[
+  {
+    "title": "Holly's Film",
+    "festival": "Encore Film Festival",
+    "info": {
+      "screening_date": "December 7, 2018",
+      "screening_time": "7:30pm",
+      "directors": ["Holly Weldon"],
+      "logline": "a documentary on Motown",
+      "genre": "documentary",
+      "run_time_secs": 1600,
+      "image_url": "N/A",
+      "trailer_url": "N/A"
+    }
+  },
+  {
+    "title": "Jeffrey's Film",
+    "festival": "Jeff's Film Festival",
+    "info": {
+      "screening_date": "January 24, 2019",
+      "screening_time": "11:30am",
+      "directors": ["Jeffrey Weldon"],
+      "logline": "a biopic on Jeffrey's video game career",
+      "genre": "drama",
+      "run_time_secs": 2000,
+      "image_url": "N/A",
+      "trailer_url": "N/A"
+    }
+  },
+  {
+    "title": "Samauri T-Dot",
+    "festival": "Tony's Greatest Hits",
+    "info": {
+      "screening_date": "April 24, 2019",
+      "screening_time": "12:30pm",
+      "directors": ["Tony Weldon"],
+      "logline": "Tony travels back in time to Japan to become a great samauri",
+      "genre": "drama",
+      "run_time_secs": 2500,
+      "image_url": "N/A",
+      "trailer_url": "N/A"
+    }
+  },
+  {
+    "title": "T-Dot Summer Vacation",
+    "festival": "Tony's Greatest Hits",
+    "info": {
+      "screening_date": "April 24, 2019",
+      "screening_time": "3:30pm",
+      "directors": ["Tony Weldon"],
+      "logline": "Tony and his ragtag buddies go on a summer roadtrip and comedy ensues",
+      "genre": "comedy",
+      "run_time_secs": 2500,
+      "image_url": "N/A",
+      "trailer_url": "N/A"
+    }
+  }
+]
