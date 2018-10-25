@@ -2,38 +2,57 @@
   <nav>
     <ul>
       <li>
-        <a href="#">FFCloud</a>
+        <a href="#">FilmFestivalCloud</a>
       </li>
       <li>
         <a href="#">About</a>
+      </li>
+      <li>
+        <a href="#">Sign Up</a>
       </li>
     </ul>
   </nav>
 </template>
 
+<script>
+export default {
+  computed: {
+    listStyling: function () {
+      return {
+        backgroundColor: '#333',
+        position: 'fixed',
+        top: '0',
+        width: '100%'
+      }
+    }
+  }
+}
+</script>
+
 <style scoped>
 ul {
-    list-style-type: none;
     margin: 0;
-    padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: #F5CBA7;
     position: fixed;
     top: 0;
     width: 100%;
+    height: 60px;
+    z-index: 1;
 }
 li {
     float: left;
+    list-style-type: none;
 }
 li a {
     display: block;
-    color: white;
+    font-weight: 600;
+    font-family: Helvetica, sans-serif;
+    color:#263238;
+    font-size: 18px;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-}
-li a:hover {
-    background-color: #111;
 }
 
 .sticky {

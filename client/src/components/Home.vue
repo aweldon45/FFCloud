@@ -1,38 +1,49 @@
  <template>
   <div>
-    <div :style="mainBannerStyling">
-       <h2>{{message}}</h2>
-       <p>{{message2}}</p>
-  </div>
-  <div>
-    <ul :style='midNavStyling'>
-      <li :style='midNavtxtStyling'>
-        <a href="#">Screening Soon</a>
-      </li>
-      <li :style='midNavtxtStyling'>
-        <a href="#">Screenings by Festival</a>
-      </li>
-      <li :style='midNavtxtStyling'>
-        <a href="#">Top Performers</a>
-      </li>
-    </ul>
+    <div :style="BackgroundStyling">
+      <div :style="mainBannerStyling">
+        <h2>{{message}}</h2>
+      </div>
   </div>
   <br>
   <ul>
   <li :style='cardStyling'>
-    <h2>film A</h2>
+    <div :style='cardImgStyling'>
+      Image
+    </div>
+    <div :style='cardTxtStyling'>
+      <h4>Holly's film</h4>
+    </div>
   </li>
   <li :style='cardStyling'>
-    <h2>film B</h2>
+    <div :style='cardImgStyling'>
+      Image
+    </div>
+    <div :style='cardTxtStyling'>
+      <h4>Jeffrey's film</h4>
+    </div>
   </li>
   <li :style='cardStyling'>
-    <h2>film C</h2>
+    <div :style='cardImgStyling'>
+      Image
+    </div>
+    <div :style='cardTxtStyling'>
+      <h4>Tony's film</h4>
+    </div>
   </li>
 </ul>
 </div>
 </template>
 
 <script>
+
+/* const filmList = {
+  Img: '',
+  Title: 'Hollys Film',
+  Festival: 'Encore Film Festival',
+  Director: 'Holly Weldon'
+} */
+
 export default {
   data () {
     return {
@@ -41,51 +52,62 @@ export default {
     }
   },
   computed: {
-    cardStyling: function () {
+    BackgroundStyling: function () {
       return {
-        position: 'relative',
-        margin: '20px 20px',
-        boxShadow: '0 4px 8px 0 rgba',
-        transition: '0.3s',
-        width: '202px',
-        height: '158px',
-        borderRadius: '5px',
-        backgroundColor: '#008CBA',
-        display: 'inline-block'
+        display: 'block',
+        backgroundColor: '#F5CBA7',
+        height: '210px',
+        justifyContent: 'center',
+        lineHeight: '15.6px',
+        paddingLeft: '20px',
+        paddingRight: '20px',
+        top: '60px',
+        width: '100%'
       }
     },
     mainBannerStyling: function () {
       return {
-        display: 'grid',
-        backgroundColor: '#F5CBA7',
+        display: 'block',
+        fontSize: '30px',
+        position: 'absolute',
+        height: '210px',
+        width: '100%',
+        color: '#263238',
+        textAlign: 'center',
+        lineHeight: '1.5',
+        margin: '0 auto'
+      }
+    },
+    cardStyling: function () {
+      return {
+        position: 'relative',
+        boxSizing: 'border-box',
+        margin: '20px 20px',
+        width: '225px',
+        height: '350px',
+        borderRadius: '5px',
+        display: 'inline-block',
+        border: '1px solid black'
+      }
+    },
+    cardImgStyling: function () {
+      return {
+        position: 'absolute',
+        boxSizing: 'border-box',
+        width: '100%',
         height: '200px',
-        width: '100%',
-        color: 'black',
-        textAlign: 'center',
-        margin: '0 auto',
-        boxSizing: 'border-box'
+        top: '0',
+        backgroundColor: '#F39C12'
       }
     },
-    midNavStyling: function () {
+    cardTxtStyling: function () {
       return {
+        position: 'absolute',
+        boxSizing: 'border-box',
         width: '100%',
-        height: '60px',
-        transition: '0.3s',
-        color: 'black',
-        textAlign: 'center',
-        marginTop: '10 px',
-        marginBottom: '10 px',
-        boxSizing: 'border-box'
-      }
-    },
-    midNavtxtStyling: function () {
-      return {
-        display: 'inline',
-        fontSize: '25px',
-        marginRight: '20px',
-        marginLeft: '20px',
-        textDecorationLine: 'none',
-        textAlign: 'center'
+        height: '150px',
+        bottom: '0',
+        backgroundColor: 'white'
       }
     }
   }
