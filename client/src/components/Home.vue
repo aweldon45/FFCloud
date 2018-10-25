@@ -1,8 +1,21 @@
  <template>
   <div>
-    <div class="homepage">
-       <h2 class="logline">{{message}}</h2>
-       <p class="logline">{{message2}}</p>
+    <div :style="mainBannerStyling">
+       <h2>{{message}}</h2>
+       <p>{{message2}}</p>
+  </div>
+  <div>
+    <ul :style='midNavStyling'>
+      <li :style='midNavtxtStyling'>
+        <a href="#">Screening Soon</a>
+      </li>
+      <li :style='midNavtxtStyling'>
+        <a href="#">Screenings by Festival</a>
+      </li>
+      <li :style='midNavtxtStyling'>
+        <a href="#">Top Performers</a>
+      </li>
+    </ul>
   </div>
   <br>
   <ul>
@@ -34,32 +47,47 @@ export default {
         margin: '20px 20px',
         boxShadow: '0 4px 8px 0 rgba',
         transition: '0.3s',
-        width: '450px',
-        height: '300px',
+        width: '202px',
+        height: '158px',
         borderRadius: '5px',
         backgroundColor: '#008CBA',
         display: 'inline-block'
+      }
+    },
+    mainBannerStyling: function () {
+      return {
+        display: 'grid',
+        backgroundColor: '#F5CBA7',
+        height: '200px',
+        width: '100%',
+        color: 'black',
+        textAlign: 'center',
+        margin: '0 auto',
+        boxSizing: 'border-box'
+      }
+    },
+    midNavStyling: function () {
+      return {
+        width: '100%',
+        height: '60px',
+        transition: '0.3s',
+        color: 'black',
+        textAlign: 'center',
+        marginTop: '10 px',
+        marginBottom: '10 px',
+        boxSizing: 'border-box'
+      }
+    },
+    midNavtxtStyling: function () {
+      return {
+        display: 'inline',
+        fontSize: '25px',
+        marginRight: '20px',
+        marginLeft: '20px',
+        textDecorationLine: 'none',
+        textAlign: 'center'
       }
     }
   }
 }
 </script>
-
-<style scoped>
-.homepage {
-  background-image: url("https://i.imgur.com/Ssvxw5P.jpg");
-  height: 500px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position:relative;
-  margin-left: 10px
-},
-.logline {
-color: white;
-text-align: center;
-position: relative;
-top: 45%;
-}
-
-</style>
