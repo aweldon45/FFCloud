@@ -10,6 +10,7 @@
     <h2>Encore Film Festival</h2>
   </div>
   <ul>
+<!--eslint-disable-next-line-->
    <li :style='cardStyling' v-for="films in filmList">
      <div :style='cardImgStyling'>
        <a href='#'>

@@ -2,13 +2,13 @@
   <nav>
     <ul>
       <li>
-        <a href="#">FilmFestivalCloud</a>
+        <a href="/">FilmFestivalCloud</a>
       </li>
       <li style="float: right">
         <a href="#">How it Works</a>
       </li>
       <li style="float: right">
-        <a href="#">Sign Up</a>
+        <a href="/TicketBooth">Sign Up</a>
       </li>
     </ul>
   </nav>
