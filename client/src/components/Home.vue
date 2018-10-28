@@ -6,41 +6,20 @@
       </div>
   </div>
   <br>
+  <div :style='festivalHeaderStyling'>
+    <h2>Encore Film Festival</h2>
+  </div>
   <ul>
-   <li :style='cardStyling'>
-    <div :style='cardImgStyling'>
-      <a href='#'>
-      <img :src='filmImage' :style='Imgstyling'>
-      </a>
-    </div>
+   <li :style='cardStyling' v-for="films in filmList">
+     <div :style='cardImgStyling'>
+       <a href='#'>
+       <img :src="films.Img" :style='Imgstyling'>
+       </a>
+     </div>
     <div :style='cardTxtStyling'>
-      <h4 v-html='filmTitle'></h4>
-      <h5 v-html='filmDirector'></h5>
-      <h5 v-html='filmFestival'></h5>
-    </div>
-  </li>
-  <li :style='cardStyling'>
-    <div :style='cardImgStyling'>
-      <a href='#'>
-      <img src='https://i.imgur.com/VhJTQlU.jpg' :style='Imgstyling'>
-      </a>
-    </div>
-    <div :style='cardTxtStyling'>
-      <h4>Jeffrey's film</h4>
-      <h5>Jeffrey Film Festival</h5>
-      <h5>Oct 27, 2018 10:00PM</h5>
-    </div>
-  </li>
-  <li :style='cardStyling'>
-    <div :style='cardImgStyling'>
-      <a href='#'>
-      <img src='https://i.imgur.com/P4172CV.jpg' :style='Imgstyling'>
-      </a>
-    </div>
-    <div :style='cardTxtStyling'>
-      <h4>Tony's film</h4>
-      <h5>Aubrey Film Festival</h5>
-      <h5>Oct 28, 2018 12:00PM</h5>
+      <h4>{{films.Title}}</h4>
+      <h5>{{films.Director}}</h5>
+      <h5>{{films.SDate}}</h5>
     </div>
   </li>
 </ul>
@@ -49,41 +28,33 @@
 
 <script>
 
-const filmList = [{
-  Title: "Holly's Film",
-  Festival: 'Encore Film Festival',
-  Director: 'Holly Weldon',
-  Img: 'https://i.imgur.com/SxhtThr.jpg'
-},
-{
-  Title: "Jeffrey's Film",
-  Festival: 'Jeffrey Film Festival',
-  Director: 'Jeffrey Weldon',
-  Img: 'https://i.imgur.com/VhJTQlU.jpg'
-}
-]
-
-const filmReturn = (name, prop) => {
-  for (var i = 0; i < filmList.length; i++) {
-    if (filmList[i].Title === name) {
-      return filmList[i][prop]
-    } else {
-      return 'invalid entry'
-    }
-  }
-}
-
 export default {
   data () {
     return {
       message: 'Experience your favorite festivals from anywhere!',
       message2: 'Simultaneous broadcast with live screenings',
-      Film1: "Holly's Film",
-      Film2: "Jeffrey's Film",
-      filmTitle: filmReturn("Holly's Film", 'Title'),
-      filmImage: filmReturn("Holly's Film", 'Img'),
-      filmDirector: filmReturn("Holly's Film", 'Director'),
-      filmFestival: filmReturn("Holly's Film", 'Festival')
+      filmList: [{
+        filmID: 'A1',
+        Title: "Holly's Film",
+        SDate: 'Oct 28 8:00PM',
+        Director: 'Holly Weldon',
+        Img: 'https://i.imgur.com/SxhtThr.jpg'
+      },
+      {
+        filmID: 'A2',
+        Title: "Jeffrey's Film",
+        SDate: 'Oct 28 8:00PM',
+        Director: 'Jeffrey Weldon',
+        Img: 'https://i.imgur.com/VhJTQlU.jpg'
+      },
+      {
+        filmID: 'A3',
+        Title: "Aubrey's Film",
+        SDate: 'Oct 31 8:00PM',
+        Director: 'Aubrey Chamberlain',
+        Img: 'https://i.imgur.com/P4172CV.jpg'
+      }
+      ]
     }
   },
   computed: {
@@ -111,6 +82,15 @@ export default {
         textAlign: 'center',
         lineHeight: '1.5',
         margin: '0 auto'
+      }
+    },
+    festivalHeaderStyling: function () {
+      return {
+        display: 'inline',
+        fontSize: '18px',
+        width: '100%',
+        color: '#263238',
+        textAlign: 'left'
       }
     },
     cardStyling: function () {

@@ -4,10 +4,10 @@
       <li>
         <a href="#">FilmFestivalCloud</a>
       </li>
-      <li>
-        <a href="#">About</a>
+      <li style="float: right">
+        <a href="#">How it Works</a>
       </li>
-      <li>
+      <li style="float: right">
         <a href="#">Sign Up</a>
       </li>
     </ul>
@@ -32,6 +32,7 @@ export default {
 <style scoped>
 ul {
     margin: 0;
+    padding: 0;
     overflow: hidden;
     background-color: #F5CBA7;
     position: fixed;
