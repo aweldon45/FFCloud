@@ -3,8 +3,6 @@
     <form :style='formStyling'>
       <label :style='labelStyling'>Email:</label>
       <input :style='inputStyling'>
-      <label :style='labelStyling'>Password:</label>
-      <input :style='inputStyling'>
       <button :style='buttonStyling'>Sign Up!</button>
     </form>
   </div>
@@ -16,7 +14,7 @@ export default {
     formStyling: function () {
       return {
         position: 'absolute',
-        width: '500px',
+        width: '800px',
         height: '100x',
         margin: '80px 650px',
         border: '3px solid black'
@@ -24,7 +22,7 @@ export default {
     },
     labelStyling: function () {
       return {
-        display: 'block',
+        display: 'inline',
         width: '400px',
         fontSize: '20px',
         fontWeight: 'bold',

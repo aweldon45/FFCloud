@@ -5,10 +5,10 @@
         <a href="/">FilmFestivalCloud</a>
       </li>
       <li style="float: right">
-        <a href="#">How it Works</a>
+        <a href="#">Connect with us</a>
       </li>
       <li style="float: right">
-        <a href="/TicketBooth">Sign Up</a>
+        <a href="/TicketBooth">How it works</a>
       </li>
     </ul>
   </nav>
@@ -50,7 +50,7 @@ li a {
     font-weight: 600;
     font-family: Helvetica, sans-serif;
     color:#263238;
-    font-size: 18px;
+    font-size: 20px;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
