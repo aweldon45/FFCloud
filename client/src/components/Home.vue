@@ -2,7 +2,7 @@
   <div>
     <div :style="BackgroundStyling">
       <div :style="mainBannerStyling">
-        <h2 v-text="message"></h2>
+        <h2></h2>
       </div>
   </div>
   <br>
@@ -10,8 +10,7 @@
     <h2>Encore Film Festival</h2>
   </div>
   <ul>
-<!--eslint-disable-next-line-->
-   <li :style='cardStyling' v-for="films in filmList">
+   <li :style='cardStyling' v-for="films in filmList" :key="films.Title">
      <div :style='cardImgStyling'>
        <a href='/screeningroom'>
        <img :src="films.Img" :style='Imgstyling'>
@@ -28,10 +27,18 @@
 </template>
 
 <script>
-
+import FilmService from '@/services/FilmService'
 export default {
   data () {
     return {
+      filmList: null
+    }
+  },
+  async mounted () {
+    // request films from backend
+    this.filmList = await FilmService.index()
+  },
+  /* {
       message: 'Experience your favorite festivals from anywhere!',
       message2: 'Simultaneous broadcast with live screenings',
       filmList: [{
@@ -56,8 +63,7 @@ export default {
         Img: 'https://i.imgur.com/P4172CV.jpg'
       }
       ]
-    }
-  },
+    } */
   computed: {
     BackgroundStyling: function () {
       return {
