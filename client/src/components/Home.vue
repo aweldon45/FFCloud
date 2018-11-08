@@ -10,14 +10,14 @@
     <h2>Encore Film Festival</h2>
   </div>
   <ul>
-   <li :style='cardStyling' v-for="films in filmList" :key="films.Title">
+   <li :style='cardStyling' v-for="films in filmList" :key="films.title">
      <div :style='cardImgStyling'>
        <a href='/screeningroom'>
        <img :src="films.Img" :style='Imgstyling'>
        </a>
      </div>
     <div :style='cardTxtStyling'>
-      <h4>{{films.Title}}</h4>
+      <h4>{{films.title}}</h4>
       <h5>{{films.Director}}</h5>
       <h5>{{films.SDate}}</h5>
     </div>
@@ -36,7 +36,8 @@ export default {
   },
   async mounted () {
     // request films from backend
-    this.filmList = await FilmService.index()
+    this.filmList = (await FilmService.index()).data
+    console.log('filmList', this.filmList)
   },
   /* {
       message: 'Experience your favorite festivals from anywhere!',
