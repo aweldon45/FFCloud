@@ -2,7 +2,7 @@
   <div>
     <div :style="BackgroundStyling">
       <div :style="mainBannerStyling">
-        <h2></h2>
+        <h2>{{message}}</h2>
       </div>
   </div>
   <br>
@@ -10,7 +10,7 @@
     <h2>Encore Film Festival</h2>
   </div>
   <ul>
-   <li :style='cardStyling' v-for="films in filmList" :key="films.title">
+   <li :style='cardStyling' v-for="films in filmList.Items" :key="films.title">
      <div :style='cardImgStyling'>
        <a href='/screeningroom'>
        <img :src="films.Img" :style='Imgstyling'>
@@ -31,7 +31,9 @@ import FilmService from '@/services/FilmService'
 export default {
   data () {
     return {
-      filmList: null
+      message: 'Experience your favorite festivals from anywhere!',
+      message2: 'Simultaneous broadcast with live screenings',
+      filmList: {}
     }
   },
   async mounted () {
@@ -39,10 +41,11 @@ export default {
     this.filmList = (await FilmService.index()).data
     console.log('filmList', this.filmList)
   },
-  /* {
+   /* return {
       message: 'Experience your favorite festivals from anywhere!',
       message2: 'Simultaneous broadcast with live screenings',
-      filmList: [{
+      filmList: {
+        Items: [{
         filmID: 'A1',
         Title: "Holly's Film",
         SDate: 'Oct 28 8:00PM',
@@ -63,8 +66,12 @@ export default {
         Director: 'Aubrey Chamberlain',
         Img: 'https://i.imgur.com/P4172CV.jpg'
       }
-      ]
-    } */
+    ],
+    count: 5,
+    scannedCount: 5
+    }
+    }
+  }, */
   computed: {
     BackgroundStyling: function () {
       return {
