@@ -41,37 +41,6 @@ export default {
     this.filmList = (await FilmService.index()).data
     console.log('filmList', this.filmList)
   },
-   /* return {
-      message: 'Experience your favorite festivals from anywhere!',
-      message2: 'Simultaneous broadcast with live screenings',
-      filmList: {
-        Items: [{
-        filmID: 'A1',
-        Title: "Holly's Film",
-        SDate: 'Oct 28 8:00PM',
-        Director: 'Holly Weldon',
-        Img: 'https://i.imgur.com/SxhtThr.jpg'
-      },
-      {
-        filmID: 'A2',
-        Title: "Jeffrey's Film",
-        SDate: 'Oct 28 8:00PM',
-        Director: 'Jeffrey Weldon',
-        Img: 'https://i.imgur.com/VhJTQlU.jpg'
-      },
-      {
-        filmID: 'A3',
-        Title: "Aubrey's Film",
-        SDate: 'Oct 31 8:00PM',
-        Director: 'Aubrey Chamberlain',
-        Img: 'https://i.imgur.com/P4172CV.jpg'
-      }
-    ],
-    count: 5,
-    scannedCount: 5
-    }
-    }
-  }, */
   computed: {
     BackgroundStyling: function () {
       return {

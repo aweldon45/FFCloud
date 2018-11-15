@@ -64,7 +64,7 @@ module.exports = (app) => {
   app.post('/newfilm', function (req, res) {
     AWS.config.update(config.aws_local_config)
 
-    const {title, festival} = req.body;
+    const {title, festival, info} = req.body;
 
     const docClient = new AWS.DynamoDB.DocumentClient();
 
@@ -73,15 +73,7 @@ module.exports = (app) => {
      Item: {
        'title': title,
        'festival': festival,
-       'info': {
-         'screening date': 'Nov 4, 2018',
-         'screening time': '3:30 PM',
-         'directors': ['Aubrey Chamberlain, Tony Weldon'],
-         'logline': 'A trip to Montreal',
-         'genre': 'Romnace',
-         'image_url': 'N/A',
-         'screening_url': 'N/A'
-       }
+       'info': info
      }
    };
 
@@ -89,9 +81,47 @@ module.exports = (app) => {
    docClient.put(params, function(err, data) {
        if (err) {
            console.error("Unable to add item. Error JSON:", JSON.stringify(err, null, 2));
+           res.send("Unable to add item. Error JSON:")
        } else {
            console.log("Added item:", JSON.stringify(data, null, 2));
+           res.send(`Sucessfully added ${req.body.title}`)
        }
    });
  }); // End of addfilm
+
+ //update a film
+   app.post('/updatefilm', function (req, res) {
+     AWS.config.update(config.aws_local_config)
+
+     const {title, festival} = req.body;
+
+     const docClient = new AWS.DynamoDB.DocumentClient();
+
+     const params = {
+      TableName: config.aws_table_name,
+      Key: {
+        'title': title,
+        'festival': festival
+      },
+      /* UpdateExpression: 'set info.rating = :r, info.plot = :p',
+      ExpressionAttributeValues: {
+        ':r': 5.5
+        ':p': 'Everything happens all at once'
+      }, */
+      ReturnValues: 'UPDATED_NEW'
+    };
+
+    console.log("Updating the item...");
+docClient.update(params, function(err, data) {
+    if (err) {
+        console.error("Unable to update item. Error JSON:", JSON.stringify(err, null, 2));
+        res.send("Error. Item not updated");
+    } else {
+        console.log("UpdateItem succeeded:", JSON.stringify(data, null, 2));
+        res.send("Item succesfully updated");
+      }
+    });
+  });
+
+ //delete a film
 };
