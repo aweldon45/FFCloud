@@ -93,7 +93,7 @@ module.exports = (app) => {
    app.post('/updatefilm', function (req, res) {
      AWS.config.update(config.aws_local_config)
 
-     const {title, festival} = req.body;
+     const {title, festival, updateValue, category} = req.body;
 
      const docClient = new AWS.DynamoDB.DocumentClient();
 
@@ -103,11 +103,10 @@ module.exports = (app) => {
         'title': title,
         'festival': festival
       },
-      /* UpdateExpression: 'set info.rating = :r, info.plot = :p',
+      UpdateExpression: `set info.${category} = :c`,
       ExpressionAttributeValues: {
-        ':r': 5.5
-        ':p': 'Everything happens all at once'
-      }, */
+        ':c': updateValue
+      },
       ReturnValues: 'UPDATED_NEW'
     };
 
@@ -121,7 +120,33 @@ docClient.update(params, function(err, data) {
         res.send("Item succesfully updated");
       }
     });
-  });
+  }); //End of update film
 
  //delete a film
+   app.post('/deletefilm', function (req, res) {
+     AWS.config.update(config.aws_local_config)
+
+     const {title, festival} = req.body;
+
+     const docClient = new AWS.DynamoDB.DocumentClient();
+
+     const params = {
+      TableName: config.aws_table_name,
+      Key: {
+        'title': title,
+        'festival': festival
+      }
+    };
+
+    console.log("Attempting a delete...");
+docClient.delete(params, function(err, data) {
+    if (err) {
+        console.error("Unable to delete item. Error JSON:", JSON.stringify(err, null, 2));
+        res.send("Unable to delete item.");
+    } else {
+        console.log("DeleteItem succeeded:", JSON.stringify(data, null, 2));
+        res.send("DeleteItem succeeded:");
+    }
+  });
+}); //End of delete item 
 };
