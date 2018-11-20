@@ -14,7 +14,7 @@
   </template>
 
 <script>
-import AuthenticationServices from '@/services/AuthenticationServices'
+/* import AuthenticationServices from '@/services/AuthenticationServices'
 export default {
   data () {
     return {
@@ -31,5 +31,5 @@ export default {
       console.log(response.data)
     }
   }
-}
+} */
 </script>

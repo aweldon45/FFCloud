@@ -1,27 +1,25 @@
 <template>
   <div>
-  <div :style='myPlayer'>
+  <div :style='myPlayer1'>
     <br>
-    <video class="vjs-16-9" width="80%" controls preload="auto">
+    <video class="vidPlayer" width="80%" controls preload="auto">
       <source src="//vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
-      <source src="//vjs.zencdn.net/v/oceans.webm" type="video/webm">
+      <!--<source src="https://s3.amazonaws.com/ffc.linear.output/test2/HLS/testfilm1.m3u8" type="application/x-mpegURL">-->
     </video>
   </div>
-  <!--<div>
-    <form>
-      <label>Director Feedback:</label>
-      <input :style='inputStyling'>
-    </form>
-  </div>-->
   </div>
 </template>
 
 <script>
-window.videojs = require('video.js')
-
+import VideoPlayer from '@/services/VideoPlayer'
 export default {
+  data () {
+    return {
+      vidPlayer: VideoPlayer.myPlayer
+    }
+  },
   computed: {
-    myPlayer: function () {
+    myPlayer1: function () {
       return {
         position: 'fixed',
         backgroundColor: 'black',

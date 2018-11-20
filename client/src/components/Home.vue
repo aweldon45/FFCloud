@@ -13,13 +13,13 @@
    <li :style='cardStyling' v-for="films in filmList.Items" :key="films.title">
      <div :style='cardImgStyling'>
        <a href='/screeningroom'>
-       <img :src="films.Img" :style='Imgstyling'>
+       <img :src="films.info.posterUrl" :style='Imgstyling'>
        </a>
      </div>
     <div :style='cardTxtStyling'>
       <h4>{{films.title}}</h4>
-      <h5>{{films.Director}}</h5>
-      <h5>{{films.SDate}}</h5>
+      <h5>{{films.info.directors}}</h5>
+      <h5>{{films.info.screeningDate}}</h5>
     </div>
   </li>
 </ul>
@@ -85,8 +85,7 @@ export default {
         width: '225px',
         height: '350px',
         borderRadius: '5px',
-        display: 'inline-block',
-        border: '1px solid black'
+        display: 'inline-block'
       }
     },
     cardImgStyling: function () {
@@ -95,7 +94,8 @@ export default {
         boxSizing: 'border-box',
         width: '100%',
         height: '200px',
-        top: '0'
+        top: '0',
+        boxShadow: '0 4px 8px 0 #D5DBDB'
       }
     },
     cardTxtStyling: function () {
@@ -105,7 +105,9 @@ export default {
         width: '100%',
         height: '150px',
         bottom: '0',
-        backgroundColor: 'white'
+        backgroundColor: 'white',
+        border: '1px solid #D5DBDB',
+        boxShadow: '0 4px 8px 0 #D5DBDB'
       }
     },
     Imgstyling: function () {
