@@ -20,6 +20,7 @@
       <h4>{{films.title}}</h4>
       <h5>{{films.info.directors}}</h5>
       <h5>{{films.info.screeningDate}}</h5>
+      <h5>{{films.info.screeningTime}}</h5>
     </div>
   </li>
 </ul>
@@ -83,7 +84,7 @@ export default {
         boxSizing: 'border-box',
         margin: '20px 20px',
         width: '225px',
-        height: '350px',
+        height: '380px',
         borderRadius: '5px',
         display: 'inline-block'
       }
@@ -103,7 +104,7 @@ export default {
         position: 'absolute',
         boxSizing: 'border-box',
         width: '100%',
-        height: '150px',
+        height: '180px',
         bottom: '0',
         backgroundColor: 'white',
         border: '1px solid #D5DBDB',

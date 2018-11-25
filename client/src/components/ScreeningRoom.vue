@@ -2,8 +2,7 @@
   <div>
   <div :style='screenBackground'>
     <br>
-    <video-js id="vidPlayer" class="video-js vjs-default-skin" controls preload="auto" data-setup='{}'>
-      <!--<source src="//vjs.zencdn.net/v/oceans.mp4" type="video/mp4">-->
+    <video-js id="vidPlayer" class="video-js vjs-default-skin" controls preload="auto" height="575px" data-setup='{}'>
       <source src="https://s3.amazonaws.com/ffc.linear.output/test2/HLS/testfilm1.m3u8" type="application/x-mpegURL">
     </video-js>
   </div>
