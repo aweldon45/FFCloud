@@ -1,17 +1,18 @@
 <template>
   <div>
-  <div :style='myPlayer1'>
+  <div :style='screenBackground'>
     <br>
-    <video class="vidPlayer" width="80%" controls preload="auto">
-      <source src="//vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
-      <!--<source src="https://s3.amazonaws.com/ffc.linear.output/test2/HLS/testfilm1.m3u8" type="application/x-mpegURL">-->
-    </video>
+    <video-js id="vidPlayer" class="video-js vjs-default-skin" controls preload="auto" data-setup='{}'>
+      <!--<source src="//vjs.zencdn.net/v/oceans.mp4" type="video/mp4">-->
+      <source src="https://s3.amazonaws.com/ffc.linear.output/test2/HLS/testfilm1.m3u8" type="application/x-mpegURL">
+    </video-js>
   </div>
   </div>
 </template>
 
 <script>
 import VideoPlayer from '@/services/VideoPlayer'
+
 export default {
   data () {
     return {
@@ -19,9 +20,12 @@ export default {
     }
   },
   computed: {
-    myPlayer1: function () {
+    screenBackground: function () {
       return {
         position: 'fixed',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
         backgroundColor: 'black',
         width: '100%',
         height: '615px'
