@@ -9,7 +9,7 @@
   <div :style='festivalHeaderStyling'>
     <h2>Encore Film Festival</h2>
   </div>
-  <ul>
+  <ul id='scrollingwrapper'>
    <li :style='cardStyling' v-for="films in filmList.Items" :key="films.title">
      <div :style='cardImgStyling'>
        <a href='/screeningroom'>
@@ -17,10 +17,10 @@
        </a>
      </div>
     <div :style='cardTxtStyling'>
-      <h4>{{films.title}}</h4>
-      <h5>{{films.info.directors}}</h5>
-      <h5>{{films.info.screeningDate}}</h5>
-      <h5>{{films.info.screeningTime}}</h5>
+      <p id='filmtitle'>{{films.title}}</p>
+      <p id='filmscreen'>{{films.info.screeningDate}} | {{films.info.screeningTime}}</p>
+      <p>Director: {{films.info.directors}}</p>
+      <p id='filmlogline'>{{films.info.logline}}</p>
     </div>
   </li>
 </ul>
@@ -83,7 +83,7 @@ export default {
         position: 'relative',
         boxSizing: 'border-box',
         margin: '20px 20px',
-        width: '225px',
+        width: '300px',
         height: '380px',
         borderRadius: '5px',
         display: 'inline-block'
@@ -95,8 +95,9 @@ export default {
         boxSizing: 'border-box',
         width: '100%',
         height: '200px',
-        top: '0',
-        boxShadow: '0 4px 8px 0 #D5DBDB'
+        top: '0px',
+        border: '1px solid #D5DBDB',
+        boxShadow: '8px 4px 8px 0 #D5DBDB'
       }
     },
     cardTxtStyling: function () {
@@ -108,7 +109,7 @@ export default {
         bottom: '0',
         backgroundColor: 'white',
         border: '1px solid #D5DBDB',
-        boxShadow: '0 4px 8px 0 #D5DBDB'
+        boxShadow: '8px 8px 8px 0 #D5DBDB'
       }
     },
     Imgstyling: function () {
@@ -120,3 +121,27 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+#filmtitle {
+  font-weight: bold;
+  color: #7E5109;
+  text-transform: uppercase;
+}
+#filmscreen {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+#filmlogline {
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+#scrollingwrapper {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+::-webkit-scrollbar {
+   display: none;
+}
+</style>
