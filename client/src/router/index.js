@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
-import Register from '@/components/Register'
 import About from '@/components/About'
 import TicketBooth from '@/components/TicketBooth'
 import ScreeningRoom from '@/components/ScreeningRoom'
@@ -15,11 +14,6 @@ export default new Router({
       path: '/',
       name: 'Home',
       component: Home
-    },
-    {
-      path: '/register',
-      name: 'register',
-      component: Register
     },
     {
       path: '/about',

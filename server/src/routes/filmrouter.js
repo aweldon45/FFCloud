@@ -31,7 +31,7 @@ module.exports = (app) => {
 
       const docClient = new AWS.DynamoDB.DocumentClient();
 
-      let queryFilm = decodeURIComponent(req.url.slice(12));
+      let queryFilm = decodeURIComponent(decodeURIComponent(req.url.slice(12)));
       console.log(req.url)
       console.log(queryFilm)
 
@@ -148,5 +148,5 @@ docClient.delete(params, function(err, data) {
         res.send("DeleteItem succeeded:");
     }
   });
-}); //End of delete item 
+}); //End of delete item
 };
