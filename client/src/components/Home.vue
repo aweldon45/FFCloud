@@ -12,9 +12,9 @@
   <ul id='scrollingwrapper'>
    <li :style='cardStyling' v-for="films in filmList.Items" :key="films.title">
      <div :style='cardImgStyling'>
-       <a href='/screeningroom'>
+       <router-link :to="{name: 'screeningroom', params: {title: films.title} }">
        <img :src="films.info.posterUrl" :style='Imgstyling'>
-       </a>
+     </router-link>
      </div>
     <div :style='cardTxtStyling'>
       <p id='filmtitle'>{{films.title}}</p>
@@ -97,7 +97,8 @@ export default {
         height: '200px',
         top: '0px',
         border: '1px solid #D5DBDB',
-        boxShadow: '8px 4px 8px 0 #D5DBDB'
+        borderRadius: '5%',
+        boxShadow: '8px 0 8px 0 #D5DBDB'
       }
     },
     cardTxtStyling: function () {
@@ -108,14 +109,14 @@ export default {
         height: '180px',
         bottom: '0',
         backgroundColor: 'white',
-        border: '1px solid #D5DBDB',
-        boxShadow: '8px 8px 8px 0 #D5DBDB'
+        borderRadius: '10%'
       }
     },
     Imgstyling: function () {
       return {
         width: '100%',
-        height: '100%'
+        height: '100%',
+        borderRadius: '5%'
       }
     }
   }

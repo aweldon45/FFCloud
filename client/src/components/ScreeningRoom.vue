@@ -3,17 +3,14 @@
   <div :style='screenBackground'>
     <br>
     <video-js id="vidPlayer" class="video-js vjs-default-skin" controls preload="auto" height="575px" data-setup='{}'>
-      <source :src="screeningURL" type="application/x-mpegURL">
+      <source :src="this.reqFilm.Items[0].info.screeningURL" type="application/x-mpegURL">
     </video-js>
-  </div>
-  <br>
-  <div id='check' v-for="films in reqFilm.Items">
-    <h2>{{films.info.screeningURL}}</h2>
   </div>
   </div>
 </template>
 
 <script>
+import router from '../router'
 import VideoPlayer from '@/services/VideoPlayer'
 import FilmService from '@/services/FilmService'
 
@@ -22,15 +19,15 @@ export default {
     return {
       vidPlayer: VideoPlayer.myPlayer,
       reqFilm: {},
-      screeningURL: 'https://s3.amazonaws.com/ffc.linear.output/test2/HLS/testfilm1.m3u8'
+      title1: null
     }
   },
-  /* created () {
-    this.title = this.$route.params.title
-  }, */
+  created () {
+    this.title1 = this.$route.params.title
+  },
   async mounted () {
-    // request screening film from backend
-    this.reqFilm = (await FilmService.screeningFilm()).data
+    // request screening film from backend "Motown: Sound of the 60's"
+    this.reqFilm = (await FilmService.screeningFilm(this.title1)).data
     console.log('reqFilm', this.reqFilm)
   },
   computed: {

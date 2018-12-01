@@ -4,10 +4,10 @@ export default {
   index () {
     return Api().get('allfilms')
   },
-  screeningFilm () {
+  screeningFilm (title) {
     return Api().get('film', {
       params: {
-        title: encodeURIComponent("Motown: Sound of the 60's")
+        title: encodeURIComponent(title)
       }
     })
   }

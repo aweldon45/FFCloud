@@ -26,7 +26,7 @@ export default new Router({
       component: TicketBooth
     },
     {
-      path: '/screeningroom',
+      path: '/screeningroom/:title',
       name: 'screeningroom',
       component: ScreeningRoom
     }
