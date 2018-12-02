@@ -5,11 +5,14 @@
     <video-js id="vidPlayer" class="video-js vjs-default-skin" controls preload="auto" height="575px" data-setup='{}'>
       <source :src="this.reqFilm.Items[0].info.screeningURL" type="application/x-mpegURL">
     </video-js>
+    <br>
+    <input id="commentBar" type="text" placeholder="Feedback for the filmmmaker?">
   </div>
   </div>
 </template>
 
 <script>
+// eslint-disable-next-line
 import router from '../router'
 import VideoPlayer from '@/services/VideoPlayer'
 import FilmService from '@/services/FilmService'
@@ -35,11 +38,12 @@ export default {
       return {
         position: 'fixed',
         display: 'flex',
+        flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'black',
         width: '100%',
-        height: '615px'
+        height: '100%'
       }
     },
     inputStyling: function () {
@@ -60,5 +64,16 @@ export default {
   color: red;
   margin-top: 10px;
   position: relative;
+}
+#commentBar {
+  padding-top: 10px;
+  margin-top: 20px;
+  font-size: 16px;
+  width: 1025px;
+  height: 18px;
+  color: white;
+  text-indent: 10px;
+  line-height: 1.6;
+  background-color: #17202A
 }
 </style>
