@@ -6,9 +6,8 @@
       </div>
   </div>
   <br>
-  <div :style='festivalHeaderStyling'>
-    <h2>Encore Film Festival</h2>
-  </div>
+  <div :style='festivalHeaderStyling' v-for="festivals in festivalCount">
+    <h2>{{festivals}}</h2>
   <ul id='scrollingwrapper'>
    <li :style='cardStyling' v-for="films in filmList.Items" :key="films.title">
      <div :style='cardImgStyling'>
@@ -25,6 +24,7 @@
   </li>
 </ul>
 </div>
+</div>
 </template>
 
 <script>
@@ -34,7 +34,8 @@ export default {
     return {
       message: 'Experience your favorite festivals from anywhere!',
       message2: 'Simultaneous broadcast with live screenings',
-      filmList: {}
+      filmList: {},
+      festivalCount: null
     }
   },
   async mounted () {
@@ -43,7 +44,18 @@ export default {
     console.log('filmList', this.filmList)
   },
   computed: {
-    BackgroundStyling: function () {
+    festivalCountB: function () {
+      let i = 0
+      let festCheck = []
+      for (i = 0; i < this.filmList.Items.length; i++) {
+        festCheck.push(this.filmList.Items[i].festival)
+      }
+      let festCheckResponse = festCheck.filter(function (item, pos) {
+        return festCheck.indexOf(item) === pos
+      })
+      this.festivalCount = festCheckResponse
+    },
+        BackgroundStyling: function () {
       return {
         display: 'block',
         backgroundColor: '#F5CBA7',
