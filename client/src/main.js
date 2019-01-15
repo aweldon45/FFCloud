@@ -4,7 +4,6 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 // eslint-disable-next-line
-import videojs from 'video.js'
 import 'video.js/dist/video-js.css'
 
 Vue.config.productionTip = false

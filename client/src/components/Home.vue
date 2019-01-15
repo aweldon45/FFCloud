@@ -6,7 +6,7 @@
       </div>
   </div>
   <br>
-  <div :style='festivalHeaderStyling' v-for="festivals in festivalCount">
+  <div :style='festivalHeaderStyling' v-for="festivals in festivalCount" :key="festivals">
     <h2>{{festivals}}</h2>
   <ul id='scrollingwrapper'>
    <li :style='cardStyling' v-for="films in filmList.Items" :key="films.title">
@@ -42,20 +42,19 @@ export default {
     // request films from backend
     this.filmList = (await FilmService.index()).data
     console.log('filmList', this.filmList)
+    // create festival headers
+    let i = 0
+    let festCheck = []
+    for (i = 0; i < await this.filmList.Items.length; i++) {
+      festCheck.push(this.filmList.Items[i].festival)
+    }
+    let festCheckResponse = festCheck.filter(function (item, pos) {
+      return festCheck.indexOf(item) === pos
+    })
+    this.festivalCount = festCheckResponse
   },
   computed: {
-    festivalCountB: function () {
-      let i = 0
-      let festCheck = []
-      for (i = 0; i < this.filmList.Items.length; i++) {
-        festCheck.push(this.filmList.Items[i].festival)
-      }
-      let festCheckResponse = festCheck.filter(function (item, pos) {
-        return festCheck.indexOf(item) === pos
-      })
-      this.festivalCount = festCheckResponse
-    },
-        BackgroundStyling: function () {
+    BackgroundStyling: function () {
       return {
         display: 'block',
         backgroundColor: '#F5CBA7',

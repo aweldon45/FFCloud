@@ -2,9 +2,11 @@
   <div>
   <div :style='screenBackground'>
     <br>
-    <video-js id="vidPlayer" class="video-js vjs-default-skin" controls preload="auto" height="575px" data-setup='{}'>
+    <div data-vjs-player>
+      <video id="vidPlayer" class="video-js" controls preload="auto" height="575px" data-setup='{}'>
       <source :src="this.reqFilm.Items[0].info.screeningURL" type="application/x-mpegURL">
-    </video-js>
+    </video>
+  </div>
     <br>
     <input id="commentBar" type="text" placeholder="Feedback for the filmmmaker?">
   </div>
@@ -13,14 +15,13 @@
 
 <script>
 // eslint-disable-next-line
-import router from '../router'
-import VideoPlayer from '@/services/VideoPlayer'
+import videojs from 'video.js'
 import FilmService from '@/services/FilmService'
 
 export default {
   data () {
     return {
-      vidPlayer: VideoPlayer.myPlayer,
+      vidPlayer: null,
       reqFilm: {},
       title1: null
     }
@@ -32,6 +33,10 @@ export default {
     // request screening film from backend "Motown: Sound of the 60's"
     this.reqFilm = (await FilmService.screeningFilm(this.title1)).data
     console.log('reqFilm', this.reqFilm)
+    // mount player on next tick to prevent hard refresh FU
+    this.$nextTick (function () {
+      return videojs('vidPlayer')
+    })
   },
   computed: {
     screenBackground: function () {
@@ -60,11 +65,6 @@ export default {
 </script>
 
 <style scoped>
-#check {
-  color: red;
-  margin-top: 10px;
-  position: relative;
-}
 #commentBar {
   padding-top: 10px;
   margin-top: 20px;
