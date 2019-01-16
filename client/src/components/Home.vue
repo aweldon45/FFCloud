@@ -9,7 +9,7 @@
   <div :style='festivalHeaderStyling' v-for="festivals in festivalCount" :key="festivals">
     <h2>{{festivals}}</h2>
   <ul id='scrollingwrapper'>
-   <li :style='cardStyling' v-for="films in filmList.Items" :key="films.title">
+   <li :style='cardStyling' v-if="films.festival === festivals" v-for="films in filmList.Items" :key="films.title">
      <div :style='cardImgStyling'>
        <router-link :to="{name: 'screeningroom', params: {title: films.title} }">
        <img :src="films.info.posterUrl" :style='Imgstyling'>
