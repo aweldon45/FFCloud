@@ -4,7 +4,7 @@ const config = require('../config/config.js');
 module.exports = (app) => {
   //get allfilms
   app.get('/allfilms', function (req, res) {
-  AWS.config.update(config.aws_local_config)
+  AWS.config.update(config.aws_config)
 
   const docClient = new AWS.DynamoDB.DocumentClient();
 
@@ -27,7 +27,7 @@ module.exports = (app) => {
 
 //get a single film by name
     app.get( '/film', function (req, res) {
-      AWS.config.update(config.aws_local_config)
+      AWS.config.update(config.aws_config)
 
       const docClient = new AWS.DynamoDB.DocumentClient();
 
@@ -62,7 +62,7 @@ module.exports = (app) => {
 
   //add a film
   app.post('/newfilm', function (req, res) {
-    AWS.config.update(config.aws_local_config)
+    AWS.config.update(config.aws_config)
 
     const {title, festival, info} = req.body;
 
@@ -91,7 +91,7 @@ module.exports = (app) => {
 
  //update a film
    app.post('/updatefilm', function (req, res) {
-     AWS.config.update(config.aws_local_config)
+     AWS.config.update(config.aws_config)
 
      const {title, festival, updateValue, category} = req.body;
 
@@ -124,7 +124,7 @@ docClient.update(params, function(err, data) {
 
  //delete a film
    app.post('/deletefilm', function (req, res) {
-     AWS.config.update(config.aws_local_config)
+     AWS.config.update(config.aws_config)
 
      const {title, festival} = req.body;
 

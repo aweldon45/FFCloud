@@ -4,7 +4,7 @@
     <br>
     <div data-vjs-player>
       <video id="vidPlayer" class="video-js" controls preload="auto" height="575px" data-setup='{}'>
-      <source :src="this.reqFilm.Items[0].info.screeningURL" type="application/x-mpegURL">
+      <source :src="this.reqFilm.Items[0].info.screeningUrl" type="application/x-mpegURL">
     </video>
   </div>
     <br>

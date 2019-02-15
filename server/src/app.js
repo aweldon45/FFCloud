@@ -8,8 +8,7 @@ const app = express()
 
 // DynamoDB API
 AWS.config.update({
-  region: 'us-east-1',
-  endpoint: 'http://localhost:8000'
+  region: 'us-east-1'
 });
 
 const docClient = new AWS.DynamoDB.DocumentClient();

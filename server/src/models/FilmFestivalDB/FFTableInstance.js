@@ -1,3 +1,4 @@
+//Deprecated
 // DynamoDB config
 AWS.config.update({
   region: 'us-east-1',

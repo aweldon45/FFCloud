@@ -18,8 +18,8 @@
     <div :style='cardTxtStyling'>
       <p id='filmtitle'>{{films.title}}</p>
       <p id='filmscreen'>{{films.info.screeningDate}} | {{films.info.screeningTime}}</p>
-      <p>Director: {{films.info.directors}}</p>
-      <p id='filmlogline'>{{films.info.logline}}</p>
+      <p>Director: {{films.info.directors[0]}}</p>
+      <!--<p id='filmlogline'>{{films.info.logline}}</p>-->
     </div>
   </li>
 </ul>
@@ -95,7 +95,7 @@ export default {
         boxSizing: 'border-box',
         margin: '20px 20px',
         width: '300px',
-        height: '380px',
+        height: '320px',
         borderRadius: '5px',
         display: 'inline-block'
       }
@@ -116,8 +116,9 @@ export default {
       return {
         position: 'absolute',
         boxSizing: 'border-box',
+        textAlign: 'center',
         width: '100%',
-        height: '180px',
+        height: '120px',
         bottom: '0',
         backgroundColor: 'white',
         borderRadius: '10%'
